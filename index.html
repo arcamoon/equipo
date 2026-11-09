@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gracias por ser mi equipo de trabajo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+
+<div id="escenario">
+  <header>
+    <h1>Gracias por ser mi equipo de trabajo</h1>
+    <p>Pasa el cursor o toca a cada persona</p>
+  </header>
+  <div id="etiquetas"></div>
+  <div id="inferior">
+    <div id="stack" aria-label="Stack de desarrollo">
+      <span class="laravel"><i></i>Laravel</span>
+      <span class="php"><i></i>PHP</span>
+      <span class="jquery"><i></i>jQuery</span>
+      <span class="javascript"><i></i>JavaScript</span>
+      <span class="html"><i></i>HTML</span>
+      <span class="blade"><i></i>Blade</span>
+      <span class="flutter"><i></i>Flutter</span>
+    </div>
+    <button id="celebrar" type="button">Celebrar</button>
+  </div>
+</div>
+
+
+<!-- Librería 3D -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- Código propio (el orden importa: cada archivo usa lo que definen los anteriores) -->
+<script src="js/datos.js"></script>
+<script src="js/ayudas.js"></script>
+<script src="js/props.js"></script>
+<script src="js/personaje.js"></script>
+<script src="js/escena.js"></script>
+<script src="js/logos.js"></script>
+<script src="js/equipo3d.js"></script>
+<script src="js/interacciones.js"></script>
+<script src="js/animacion.js"></script>
+</body>
+</html>

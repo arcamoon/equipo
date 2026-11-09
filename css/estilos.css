@@ -1,0 +1,121 @@
+/* ---------- Colores (claro / oscuro) ---------- */
+:root {
+  --bg: #e8eef3;
+  --ink: #17212b;
+  --muted: #5d6b79;
+  --card: #ffffff;
+  --line: #cfd9e2;
+  --accent: #17212b;
+  --on-accent: #ffffff;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12171c;
+    --ink: #eaf0f5;
+    --muted: #93a1af;
+    --card: #1d252d;
+    --line: #2c3742;
+    --accent: #eaf0f5;
+    --on-accent: #12171c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12171c;
+  --ink: #eaf0f5;
+  --muted: #93a1af;
+  --card: #1d252d;
+  --line: #2c3742;
+  --accent: #eaf0f5;
+  --on-accent: #12171c;
+}
+
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* ---------- Escenario ---------- */
+#escenario { position: relative; width: 100%; height: 100%; }
+#escenario canvas { display: block; touch-action: manipulation; }
+
+/* ---------- Título ---------- */
+header {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: clamp(14px, 3vh, 32px) 16px 0;
+  text-align: center;
+  pointer-events: none;
+}
+h1 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4.2vw, 2.8rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+header p { margin: 8px 0 0; font-size: .85rem; color: var(--muted); }
+
+/* ---------- Etiquetas de nombre (siguen al modelo 3D) ---------- */
+#etiquetas { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.etiqueta {
+  position: absolute; left: 0; top: 0;
+  transform: translate(-50%, -100%);
+  text-align: center; white-space: nowrap;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 4px 10px 5px;
+  line-height: 1.2;
+  opacity: 0;
+}
+.etiqueta b { display: block; font-size: .92rem; font-weight: 700; }
+@media (max-width: 640px) {
+  .etiqueta { padding: 3px 6px 4px; border-radius: 8px; }
+  .etiqueta b { font-size: .75rem; }
+}
+
+/* ---------- Barra inferior ---------- */
+#inferior {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0 16px clamp(14px, 3vh, 28px);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  pointer-events: none;
+}
+/* ---------- Stack de desarrollo ---------- */
+#stack {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+  max-width: 640px;
+  pointer-events: none;
+}
+#stack span {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: .78rem; color: var(--muted);
+}
+#stack i { width: 8px; height: 8px; border-radius: 50%; }
+#stack .laravel i    { background: #ff2d20; }
+#stack .php i        { background: #8892bf; }
+#stack .jquery i     { background: #0769ad; }
+#stack .javascript i { background: #f7df1e; }
+#stack .html i       { background: #e34f26; }
+#stack .blade i      { background: #ff8f6b; }
+#stack .flutter i    { background: #54c5f8; }
+
+button#celebrar {
+  pointer-events: auto;
+  font: inherit; font-weight: 500;
+  background: var(--accent); color: var(--on-accent);
+  border: 0; border-radius: 999px;
+  padding: 10px 22px; cursor: pointer;
+}
+button#celebrar:hover { opacity: .88; }
+button#celebrar:focus-visible { outline: 3px solid var(--muted); outline-offset: 3px; }
